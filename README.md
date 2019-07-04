@@ -1,3 +1,3 @@
-# javafx-spring-boot-gradle
+# SQL Report Generator
 
-https://better-coding.com/javafx-spring-boot-gradle-trzech-bohaterow-na-jednej-scenie/
+This project is designed to be an exploration of the Java Spring Framework, JavaFX, JDBC, and more libraries for the purpose of application development.
