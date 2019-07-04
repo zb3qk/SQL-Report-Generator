@@ -1,4 +1,4 @@
-package com.bettercoding.jfx;
+package ReportApplication;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +14,7 @@ public class MyApp extends Application {
     private ConfigurableApplicationContext springContext;
     private Parent rootNode;
     private FXMLLoader fxmlLoader;
+    static Stage stg;
 
     public static void main(String[] args) {
         launch(args);
@@ -30,7 +31,7 @@ public class MyApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         fxmlLoader.setLocation(getClass().getResource("/fxml/sample.fxml"));
         rootNode = fxmlLoader.load();
-
+        this.stg = primaryStage;
         primaryStage.setTitle("Hello World");
         Scene scene = new Scene(rootNode, 800, 600);
         primaryStage.setScene(scene);
@@ -41,4 +42,5 @@ public class MyApp extends Application {
     public void stop() {
         springContext.stop();
     }
+
 }
