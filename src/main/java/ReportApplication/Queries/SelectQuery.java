@@ -66,14 +66,14 @@ public class SelectQuery {
     }
 
     public ArrayList<ArrayList> SelectStatement(ArrayList<String> columns,
-                                                ArrayList<String> conditionalList, ArrayList<String> conditionals) {
+                                                ArrayList<String> conditionalList, ArrayList<String> conditionals) throws Exception{
         String columnComma = createListElements(columns);
         String query = ("select " + columnComma + " from " + tableName + ";"); //TODO Add conditionals
         return SelectStatementHelper(columns, query, conditionalList, conditionals);
 
     }
 
-    public ArrayList<ArrayList> toPureStringList(ArrayList<ArrayList> list){
+    public ArrayList<ArrayList> toPureStringList(ArrayList<ArrayList> list) throws Exception{
         ArrayList<ArrayList<String>> newList = new ArrayList<>();
         for (ArrayList arr: list){
             ArrayList<String> curArr = new ArrayList<>();
@@ -92,16 +92,15 @@ public class SelectQuery {
      * @param conditionals
      * @return
      */
-    public ArrayList<ArrayList> SelectStatement(ArrayList<String> conditionalList, ArrayList<String> conditionals) {
+    public ArrayList<ArrayList> SelectStatement(ArrayList<String> conditionalList, ArrayList<String> conditionals) throws Exception{
         String columnComma = createListElements(columnsAndTypes.get(0));
         String query = ("select * from " + tableName + ";"); //TODO Add conditionals
         return SelectStatementHelper(columnsAndTypes.get(0), query, conditionalList, conditionals);
     }
 
     public ArrayList<ArrayList> SelectStatementHelper(ArrayList<String> columns, String query,
-                                                      ArrayList<String> conditionalList, ArrayList<String> conditionals) {
+                                                      ArrayList<String> conditionalList, ArrayList<String> conditionals) throws Exception {
         String columnComma = createListElements(columns);
-        try {
             Statement selectStmt = conn.createStatement();
             ArrayList<ArrayList> output = new ArrayList<>();
             for (String col: columns) {
@@ -121,11 +120,6 @@ public class SelectQuery {
                 rows.add(curRow);
             }
             return rows;
-        } catch (SQLException e) {
-            logger.warning("Bad Select Statement");
-            e.printStackTrace();
-            return null;
-        }
     }
 
 }
