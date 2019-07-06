@@ -4,7 +4,7 @@ This project is designed to be an exploration of the Java Spring Framework, Java
 
 # Frontend
 
-Java FX and Spring.
+Using Java FX and Spring. The initial scene is the login screen. This can be bypassed if the properties file's <i>autologin</i> token is set to <i>true</i> and the login information in the properties file is correct. 
 
 # Backend
 
